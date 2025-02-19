@@ -1,0 +1,147 @@
+1.1 
+1. ¿Cómo se inicializa un repositorio local? (que comando se debe ejecutar?)
+    git init
+2. ¿Cómo hago para que un directorio deje de ser controlado por git? (que comando se debe ejecutar?)
+    Para sistemas basados en unix se puede utilizar el comando rm -rf .git y se utiliza dentro de la carpeta del repositorio
+    para Windows se puede usar la bash de git con el mismo comando o en cmd con el siguiente comando rmdir /s /q .git
+3. Si agrego un archivo a un directorio que ya está siendo controlado por git, ¿está siendo controlado por git?
+    Si agrego un archivo nuevo a mi directorio que ya esta siendo controlado por git este archivo se encuentra dentro del working directory
+    y tendria que hacer un git add para que git le haga un seguimiento
+4. ¿Qué comando se utiliza para agregar un archivo al repositorio local?
+    git add <nombre del archivo>
+5. ¿Cómo determino que archivos fueron modificados? (que comando se debe ejecutar?)
+    git diff
+6. ¿Qué comando se utiliza para hacer un commit? 
+    git commit -m <nombre del commit>
+7. En sus propias palabras, ¿qué es un commit?
+    Para mi un commit es realizar versiones de mi directorio, cada commit es una version o un punto de mi proyecto donde logre llegar o avanzar
+    y donde puedo regresar en un futuro o iniciar otra nueva version
+
+1.2
+3.
+On branch Cristian_Burgos
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   1.commit/sandwich.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        1.commit/Cristian_Burgos.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+El resultado primero nos dice en que rama estamos trabajando, luego con Changes not staged for commit
+no dice que los cambios no estan en el staging area para realizar un commit y nos recomienda los comandos que deberiamos seguir
+para al final decirnos que el archivo modificado es 1.commit/sandwich.txt 
+
+Ademas nos dice que hay un archivo sin seguimiento y bos recomienda que utilicemos git add para incluirlo y luego poder hacer un commit
+y nos dice que archivo no esta en nuestro seguimiento 1.commit/Cristian_Burgos.txt
+
+Por ultimo nos dice que los cambios no se han agregado a un commit y nos recomienda comando para realizarlo
+
+5. Ahora el comando git status me dice que el archivo sandwich.txt esta listo para realizar un commit o puedo usar git restore --staged <file>
+para deshacer el comando git add y regresar el archivo al working area
+
+7. Ahora ya no se encuentra un mensaje que me indique que se a modificado el archivo sandwich.txt o si se encunetra en el staging area
+
+9. 
+commit 5f06f06b3c2d69b47aa888d404fe548e754da877 (HEAD -> Cristian_Burgos)
+Author: Cristian Burgos <cristian495225@gmail.com>
+Date:   Tue Feb 18 20:41:44 2025 -0500
+
+    Agrego salsas
+
+commit 475a251423dd17362246a2c80ed3302f1d493f13
+Author: Cristian Burgos <cristian495225@gmail.com>
+Date:   Tue Feb 18 20:36:22 2025 -0500
+
+    Agrego mi sandwich.txt
+
+Se puede observar que con el comando git log se enlista de forma detallada los commit que se han realizado ademas de tener las siguientes caracteristicas
+como lo es el codigo del commit, el nombre y el correo del autor de quien realizo el commit, el nombre del commit y la fecha y hora en la que se realizo el commit.
+Se puede ver que estan organizados del ultimo commit realizado hasta el más antiguo.
+
+10.1
+5f06f06 (HEAD -> Cristian_Burgos) Agrego salsas
+475a251 Agrego mi sandwich.txt
+
+Se observa que siguen apareciendo los commit que se han realizado en el mismo orden anteriormente mencionado pero en esta ocacion no es tan detallado como por ejemplo
+los 7 primeros caracteres del codigo del commit y el comentario que se le realizo al commit
+
+10.2
+commit 5f06f06b3c2d69b47aa888d404fe548e754da877 (HEAD -> Cristian_Burgos)
+Author: Cristian Burgos <cristian495225@gmail.com>
+Date:   Tue Feb 18 20:41:44 2025 -0500
+
+    Agrego salsas
+
+ 1.commit/sandwich.txt | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 475a251423dd17362246a2c80ed3302f1d493f13
+Author: Cristian Burgos <cristian495225@gmail.com>
+Date:   Tue Feb 18 20:36:22 2025 -0500
+
+    Agrego mi sandwich.txt
+
+ 1.commit/sandwich.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+El comando en esta ocacion nos presenta la misma informacion que el primero adiconando el numero de cambios que se realizo, enumerandolos
+en el numero de archivos actualizados, numero de lineas agregadas y numero de lineas eliminadas
+
+11.
+diff --git a/1.commit/sandwich.txt b/1.commit/sandwich.txt
+index b493eb2..e3579ff 100644
+--- a/1.commit/sandwich.txt
++++ b/1.commit/sandwich.txt
+@@ -2,7 +2,9 @@ pan
+ mermelada
+ queso
+ jamon
++salsa BBQ
+ tomate
+ lechuga
+ queso
++salsa de tomate
+ pan
+\ No newline at end of file
+
+El comando nos explica las diferencias que hay entre los commit y en el archivo que estan las diferencias en este caso me indica que la diferencia es que en el ultimo commit
+se agregaron 2 lineas de codigo que fueron las de la salsa
+
+14.
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    1.commit/sandwich2.txt -> 1.commit/sandwich2_feo.txt
+
+El comando git status nos dice que los cambios estan listos para realizar un commit es decir que los cambios se encuentran en el staging area y ademas nos dice que
+se renombro el archivo sandwich2.txt a sandwich2_feo.txt
+
+ed5df66 (HEAD -> Cristian_Burgos) Se renombro el archivo sandwich2 a sandwich2_feo
+b117a7c Se crea el archivo sandwich2.txt
+5f06f06 Agrego salsas
+475a251 Agrego mi sandwich.txt
+
+Se observa que es un commit normal que tiene su codigo y su comentario sobre el commit
+
+15.
+On branch Cristian_Burgos
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    1.commit/sandwich2_feo.txt
+
+Ahora el comando git status me informa que el archivo sandwich2_feo.txt se a eliminado y este cambio se encuentra en el staging area
+
+46852c0 (HEAD -> Cristian_Burgos) Se elimino el archivo sandwich2_feo.txt
+ed5df66 Se renombro el archivo sandwich2 a sandwich2_feo
+b117a7c Se crea el archivo sandwich2.txt
+5f06f06 Agrego salsas
+475a251 Agrego mi sandwich.txt
+
+Se observa lo mismo que en el anterior git log, un commit normal con su codigo y su comentario
+
+16. Con el comando git log --stat se mira que en el primer commit se se hace un cambio al archivo sandwich2.txt agregandole lineas de codigo
+en el segundo commit se encierra entre llaves y se indica que el archivo sandwich2 paso a ser sandwich2_feo ademas no se actualiza ninguna linea de codigo
+y en el tercero se observa que en el archivo sandwich2_feo se eliminan todas las lineas de codigo
