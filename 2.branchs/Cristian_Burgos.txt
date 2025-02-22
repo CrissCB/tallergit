@@ -1,0 +1,99 @@
+2.1
+1. Un branch es una entorno aislado que tiene los mismos archivos del proyecto principal o la rama principal llamada main con el fin de poder trabajar sobre el proyecto sin verse afectado el proyecto que se encuentra desplegado.
+2. Son utiles cuando necesitamos agregar, eliminar o modificar ya sean archivos, carpetas o codigos sin necesidad de que los usuarios o consumidores se vean afectados por estos cambios que se estan realizando hasta que se prueben y se puedan desplegar en la rama principal.
+3. El comando para crear una branch es: "git branch <nombre de la rama>".
+4. El comando para cambiar a una rama es: "git switch <nombre de la rama> o git checkout <nombre de la rama>".
+5. El comando para eliminar una rama es: "git branch -d <nombre de la rama>".
+6. El comando para cambiar y entrar a una rama es: "git checkout -b <nombre de la rama>".
+7. Un merge nos ayuda a juntar una o más ramas y de esta manera sumar o restar archivos modificados haciendo un commit y dejando los cambios en una sola branch.
+8. Un merge se utiliza cuando los cambios o avances del proyecto ya estan listos y probados en una rama y de esta manera pasan estos cambios funcionales a la rama principal.
+9. Un tag nos permite etiquetar puntos especificos en el historial y volver facilmente a estos puntos, se utilizan comunmente para versionamientos.
+10. Un tag se crea con el siguiente comando: "git tag <nombre del tag>".
+
+2.2
+6. 
+    * 4e94f31 (HEAD -> experimento) Se agrega el condimento oregano a pizza.txt
+    * 85ef72d Se agrega el condimento albahaca a pizza.txt
+    | * 6e26214 (origin/Cristian_Burgos, Cristian_Burgos) Se crea el archivo Cristian_Burgos.txt y se restaura sandwich.txt
+    | * 46852c0 Se elimino el archivo sandwich2_feo.txt
+    | * ed5df66 Se renombro el archivo sandwich2 a sandwich2_feo
+    | * b117a7c Se crea el archivo sandwich2.txt
+    | * 5f06f06 Agrego salsas
+    | * 475a251 Agrego mi sandwich.txt
+    |/
+    * fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+
+    Se observa que desde el commit "fafdc7f" se desprende dos ramas y me indica los commit que se ahn hecho en cada rama.
+10.
+    * e46ed4b (HEAD -> anana) Se agrega el condimento anana a pizza.txt
+    | * 4e94f31 (experimento) Se agrega el condimento oregano a pizza.txt
+    | * 85ef72d Se agrega el condimento albahaca a pizza.txt
+    |/
+    | * 6e26214 (origin/Cristian_Burgos, Cristian_Burgos) Se crea el archivo Cristian_Burgos.txt y se restaura sandwich.txt
+    | * 46852c0 Se elimino el archivo sandwich2_feo.txt
+    | * ed5df66 Se renombro el archivo sandwich2 a sandwich2_feo
+    | * b117a7c Se crea el archivo sandwich2.txt
+    | * 5f06f06 Agrego salsas
+    | * 475a251 Agrego mi sandwich.txt
+    |/
+    * fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025, main) cambio readme.md
+
+    Se observa que desde el commit "fafdc7f" ahora se desprende 3 ramas y se especifica los commit realizados en cada rama.
+15.
+    * 886443b (HEAD -> main) Se agrega el condimento cebolla a pizza.txt
+    | * e46ed4b (anana) Se agrega el condimento anana a pizza.txt
+    |/
+    | * 4e94f31 (experimento) Se agrega el condimento oregano a pizza.txt
+    | * 85ef72d Se agrega el condimento albahaca a pizza.txt
+    |/
+    | * 6e26214 (origin/Cristian_Burgos, Cristian_Burgos) Se crea el archivo Cristian_Burgos.txt y se restaura sandwich.txt
+    | * 46852c0 Se elimino el archivo sandwich2_feo.txt
+    | * ed5df66 Se renombro el archivo sandwich2 a sandwich2_feo
+    | * b117a7c Se crea el archivo sandwich2.txt
+    | * 5f06f06 Agrego salsas
+    | * 475a251 Agrego mi sandwich.txt
+    |/
+    * fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025) cambio readme.md
+
+    Se observa que desde el commit "fafdc7f" ademas de desprenderse las 3 ramas arriba del todo se encuentra el commit realizado en main.
+
+16. Solo se encuentra la rama practica2025 mergeada a main
+18. 
+    *   cd1643b (HEAD -> main) Merge branch 'experimento'
+    |\
+    | * 4e94f31 (experimento) Se agrega el condimento oregano a pizza.txt
+    | * 85ef72d Se agrega el condimento albahaca a pizza.txt
+    * | 886443b Se agrega el condimento cebolla a pizza.txt
+    |/
+    | * e46ed4b (anana) Se agrega el condimento anana a pizza.txt
+    |/
+    | * 6e26214 (origin/Cristian_Burgos, Cristian_Burgos) Se crea el archivo Cristian_Burgos.txt y se restaura sandwich.txt
+    | * 46852c0 Se elimino el archivo sandwich2_feo.txt
+    | * ed5df66 Se renombro el archivo sandwich2 a sandwich2_feo
+    | * b117a7c Se crea el archivo sandwich2.txt
+    | * 5f06f06 Agrego salsas
+    | * 475a251 Agrego mi sandwich.txt
+    |/
+    * fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025) cambio readme.md
+
+    Se observa que la rama "experimento" que salia de la rama principal ahora se junta a ella.
+19. Tuve que confirmar y ademas agregar un comentario al commit pero no se realizo nada más.
+20. Ahora ademas de "practica2025" tambien esta la rama "experimento" mergeada a la rama principal.
+23. Solo se encuentra la rama "practica2025" mergeada a main
+24.
+    *   cd1643b (HEAD -> main) Merge branch 'experimento'
+    |\
+    | * 4e94f31 Se agrega el condimento oregano a pizza.txt
+    | * 85ef72d Se agrega el condimento albahaca a pizza.txt
+    * | 886443b Se agrega el condimento cebolla a pizza.txt
+    |/
+    | * 6e26214 (origin/Cristian_Burgos, Cristian_Burgos) Se crea el archivo Cristian_Burgos.txt y se restaura sandwich.txt
+    | * 46852c0 Se elimino el archivo sandwich2_feo.txt
+    | * ed5df66 Se renombro el archivo sandwich2 a sandwich2_feo
+    | * b117a7c Se crea el archivo sandwich2.txt
+    | * 5f06f06 Agrego salsas
+    | * 475a251 Agrego mi sandwich.txt
+    |/
+    * fafdc7f (origin/practica2025, origin/main, origin/HEAD, practica2025) cambio readme.md
+
+    Solo se indica dos ramas que salen de la principal y una que regresa a la principal pero ya no tiene nombre o titulo.
