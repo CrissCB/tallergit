@@ -1,0 +1,64 @@
+3.1
+1. Un conflicto ocurre cuando dos o más desarrolladores interfieren en un mismo archivo y git no puede determinar que trabajo realizado por los desarrolladores deberia mantener, descartar o si mantiene ambos.
+2. Se podria evitar un conflicto organizando el equipo de trabajo y asigando tareas a cada persona, pero esto no evita en su totalidad que no llegue a suceder un conflicto.
+
+3.2
+10. 
+    diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+    index 5255304..1c57c4d 100644
+    --- a/3.conflicts/milanesa.txt
+    +++ b/3.conflicts/milanesa.txt
+    @@ -1,2 +1,2 @@
+     pan rallado
+    -lomo
+    \ No newline at end of file
+    +pollo
+    \ No newline at end of file 
+
+    El comando: "git diff main suprema" me entrega como resultado que se elimino la linea que decia: "lomo" y se cambio por la nueva linea llamada "pollo".
+
+    diff --git a/3.conflicts/milanesa.txt b/3.conflicts/milanesa.txt
+    index 5255304..1712737 100644
+    --- a/3.conflicts/milanesa.txt
+    +++ b/3.conflicts/milanesa.txt
+    @@ -1,2 +1,2 @@
+     pan rallado
+    -lomo
+    \ No newline at end of file
+    +bife
+    \ No newline at end of file
+
+    El comando: "git diff main bife" me entrega como resultado que se elimino la linea que decia: "lomo" y se cambio por la nueva linea llamada "bife".
+
+11. No se observa nada con el comando: "git status".
+12. 
+    Updating cbe36af..94848f6
+    Fast-forward
+     3.conflicts/milanesa.txt | 2 +-
+     1 file changed, 1 insertion(+), 1 deletion(-)
+    
+    Si funciono el merge de bife a main.
+13. 
+    Auto-merging 3.conflicts/milanesa.txt
+    CONFLICT (content): Merge conflict in 3.conflicts/milanesa.txt
+    Automatic merge failed; fix conflicts and then commit the result.
+
+    No funciono y en esta ocacion nos indican que se encontraron conflictos en el contenido.
+14.
+    You have unmerged paths.
+      (fix conflicts and run "git commit")
+      (use "git merge --abort" to abort the merge)
+
+    Unmerged paths:
+      (use "git add <file>..." to mark resolution)
+            both modified:   3.conflicts/milanesa.txt
+    
+    Me indica que tengo un conflicto al hacer un commit y me sugiere abortar el merge ademas me dice que el archivo milanesa.txt a sido midificado y se encuentra en el working area.
+15. 
+    <<<<<<< HEAD
+    bife
+    =======
+    pollo
+    >>>>>>> suprema
+
+    Me dice que en la rama main se encuentra "bife" y desde la rama suprema se quiere insertar "pollo".
